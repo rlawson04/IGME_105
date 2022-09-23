@@ -1,4 +1,4 @@
-# ** Enter your name here! **
+# ** Reilly Lawson **
 # 105-Personal-Repo
 A template repository for students in IGME 105 to store their classwork for the semester.
 
