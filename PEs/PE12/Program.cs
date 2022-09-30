@@ -23,6 +23,17 @@ namespace PE12
                 Console.Write(loopCounter + " ");
                 loopCounter = loopCounter + 1;
             }
+            Console.WriteLine();
+            Divider();
+
+            loopCounter = 20;
+            do
+            {
+                Console.Write(loopCounter + " ");
+                loopCounter = loopCounter + 1;
+            }
+            while (loopCounter < 24);
+            Console.WriteLine();
             Divider();
         }
         
