@@ -7,9 +7,12 @@ namespace PE12
     {
         static void Main(string[] args)
         {
-            
+            //var to keep track of loop iterations
             int loopCounter = 20;
+            
             Divider();
+      
+            //loop that prints 20 - 23 each on a seperate line
             while (loopCounter < 24)
             {
                 Console.WriteLine(loopCounter);
@@ -17,6 +20,7 @@ namespace PE12
             }
             Divider();
 
+            //while loop that prints 20 - 23 on the same line
             loopCounter = 20;
             while (loopCounter < 24)
             {
@@ -26,6 +30,7 @@ namespace PE12
             Console.WriteLine();
             Divider();
 
+            //do while that also prints 20 - 23 on same line
             loopCounter = 20;
             do
             {
@@ -36,6 +41,7 @@ namespace PE12
             Console.WriteLine();
             Divider();
 
+            //for loop that uses a new int to print 20 - 23 on the same line
             loopCounter = 20;
             for (int i = 20; i < 24; i++)
             {
@@ -44,6 +50,7 @@ namespace PE12
             Console.WriteLine();
             Divider();
 
+            //do while loop that prints 25, 35, 45, 55, 65, and 75 with commas
             loopCounter = 25;
             do
             {
@@ -59,6 +66,7 @@ namespace PE12
             Console.WriteLine();
             Divider();
 
+            //for loop that prints the individual letters of the word candy 
             string word = "CANDY";
             int length = word.Length;
 
@@ -71,6 +79,7 @@ namespace PE12
             }
             Divider();
 
+            //while loop that takes user input and repeats until user enters stop
             string userInput = "";
 
             while (userInput != "STOP")
@@ -85,6 +94,7 @@ namespace PE12
             }
             Divider();
 
+            //for loop that takes four double values from user and adds them up 
             double sumOfValues = 0;
             double userValue = 0;
 
