@@ -7,7 +7,23 @@ namespace PE12
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            Divider();
+            int loopCounter = 20;
+            while (loopCounter < 24)
+            {
+                Console.WriteLine(loopCounter);
+                loopCounter++; 
+            }
+            Divider();
+        }
+        
+        /// <summary>
+        /// Creates a visual barrier between lines of code
+        /// </summary>
+        public static void Divider ()
+        {
+            
+            Console.WriteLine("======================================");
         }
     }
 }
