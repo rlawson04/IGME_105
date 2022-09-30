@@ -7,12 +7,21 @@ namespace PE12
     {
         static void Main(string[] args)
         {
-            Divider();
+            
             int loopCounter = 20;
+            Divider();
             while (loopCounter < 24)
             {
                 Console.WriteLine(loopCounter);
                 loopCounter++; 
+            }
+            Divider();
+
+            loopCounter = 20;
+            while (loopCounter < 24)
+            {
+                Console.Write(loopCounter + " ");
+                loopCounter = loopCounter + 1;
             }
             Divider();
         }
