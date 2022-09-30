@@ -70,6 +70,33 @@ namespace PE12
                 
             }
             Divider();
+
+            string userInput = "";
+
+            while (userInput != "STOP")
+            {
+                Console.Write("Enter a word: ");
+                userInput = Console.ReadLine().ToUpper().Trim();
+
+                if (userInput == "STOP")
+                {
+                    Console.WriteLine("Okay!");
+                }
+            }
+            Divider();
+
+            double sumOfValues = 0;
+            double userValue = 0;
+
+            for (int i =0; i < 4; i++)
+            {
+                Console.Write("Enter a number: ");
+                userInput = Console.ReadLine();
+                userValue = double.Parse(userInput);
+
+                sumOfValues = sumOfValues + userValue;
+            }
+            Console.WriteLine(sumOfValues);
         }
         
         /// <summary>
