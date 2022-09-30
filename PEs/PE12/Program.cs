@@ -43,6 +43,33 @@ namespace PE12
             }
             Console.WriteLine();
             Divider();
+
+            loopCounter = 25;
+            do
+            {
+                Console.Write(loopCounter);
+                if (loopCounter < 75)
+                {
+                    Console.Write(", ");
+                }
+
+                loopCounter = loopCounter + 10;
+            }
+            while (loopCounter <= 75);
+            Console.WriteLine();
+            Divider();
+
+            string word = "CANDY";
+            int length = word.Length;
+
+            Console.WriteLine($"The word is {word}");
+            for (int i = 0; i < 5; i++)
+            {
+                Console.WriteLine(word[i]);
+                length = i;
+                
+            }
+            Divider();
         }
         
         /// <summary>
