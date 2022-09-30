@@ -35,6 +35,14 @@ namespace PE12
             while (loopCounter < 24);
             Console.WriteLine();
             Divider();
+
+            loopCounter = 20;
+            for (int i = 20; i < 24; i++)
+            {
+                Console.Write(i + " ");
+            }
+            Console.WriteLine();
+            Divider();
         }
         
         /// <summary>
