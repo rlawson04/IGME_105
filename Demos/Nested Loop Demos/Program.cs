@@ -12,14 +12,14 @@ namespace Nested_Loop_Demos
             for (int x = 0; x < 10; x++)
             {
                 for (int y = 0; y < 10; y++)
-                { 
-                Console.Write(".");
+                {
+                    Console.Write(".");
                 }
 
                 Console.Write("\n");
             }
 
-            for(int r = 0; r < 15; r++)
+            for (int r = 0; r < 15; r++)
             {
                 for (int c = 0; c < 15; c++)
                 {
@@ -27,6 +27,8 @@ namespace Nested_Loop_Demos
                 }
                 Console.WriteLine();
             }
+
+
         }
     }
 }
