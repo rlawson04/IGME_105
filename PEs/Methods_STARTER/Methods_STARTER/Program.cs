@@ -181,7 +181,13 @@ namespace Methods_STARTER
         //   MakesTen(1, 9) → true                                                  *
         // **************************************************************************
 
-        /*  W R I T E    T H E    M E T H O D    H E R E */
+       //public static bool MakesTen(int firstNum, int secondNum)
+       // {
+       //     if (firstNum == 10)
+       //     {
+       //         return true;
+       //     }
+       // }
 
         // **************************************************************************
         // TODO: Write method #2                                                    *
@@ -203,7 +209,12 @@ namespace Methods_STARTER
         //   Largest(5, 5, 5) → 5                                                   *
         // **************************************************************************
 
-        /*  W R I T E    T H E    M E T H O D    H E R E */
+        public static int Largest(int a, int b, int c)
+        {
+            int largestValueOfTwo = Math.Max(a, b);
+            int largestValueOfThree = Math.Max((largestValueOfTwo), c);
+            return largestValueOfThree;
+        }
 
         // **************************************************************************
         // TODO: Write method #3                                                    *
@@ -224,7 +235,20 @@ namespace Methods_STARTER
         //   NotString("nothing") → "nothing"                                       *
         // **************************************************************************
 
-        /*  W R I T E    T H E    M E T H O D    H E R E */
+        public static string NotString(string word)
+        {
+            if (word.Length >= 3 && word.Substring(0, 3) != "not")
+            {
+                return word;
+            }
+            else
+            {
+                return "not" + word;
+            }
+        
+
+
+        }
 
         // **************************************************************************
         // TODO: Write method #4                                                    *
@@ -248,7 +272,18 @@ namespace Methods_STARTER
         //   RemoveIndex("kitten", -1) → "Index is out of range"                    *
         // **************************************************************************
 
-        /*  W R I T E    T H E    M E T H O D    H E R E */
+        public static string RemoveIndex(string word, int index)
+        {
+            if(index < word.Length && index >= 0)
+            {
+                string removedString = word.Remove(index, 1);
+                return removedString;
+            }
+            else
+            {
+                return "Index is out of range";
+            }
+        }
 
         // **************************************************************************
         // TODO: Write method #5                                                    *
@@ -269,7 +304,22 @@ namespace Methods_STARTER
         //   PrintLetters("Halloween!") → H-a-l-l-o-w-e-e-n-!                       *
         // **************************************************************************
 
-        /*  W R I T E    T H E    M E T H O D    H E R E */
+        public static void PrintLetters(string word)
+        {
+            for (int i = 0; i < word.Length; i++)
+            {
+                Console.Write(word[i]);
+                if (i != word.Length - 1)
+                {
+                    Console.Write(word[i] + "-");
+                }
+                else
+                {
+                    Console.Write(word[i]);
+                }
+                Console.WriteLine();
+            }
+        }
 
         // **************************************************************************
         // TODO: Write method #6                                                    *
@@ -289,7 +339,17 @@ namespace Methods_STARTER
         //   Distance(10, 2, 3, 5) → 7.615773105863909                              *
         // **************************************************************************
 
-        /*  W R I T E    T H E    M E T H O D    H E R E */
+        public static double Distance(int x1, int y1, int x2, int y2)
+        {
+            double xDifference = x2 - x1;
+            double yDifference = y2 - y1;
+            double yDiffSquared = Math.Pow(yDifference, 2);
+            double xDiffSquared = Math.Pow(xDifference, 2);
+            double sumOfDifference = xDiffSquared + yDiffSquared;
+            double squareRoot = Math.Sqrt(sumOfDifference);
+
+            return squareRoot;
+        }
 
 
 
