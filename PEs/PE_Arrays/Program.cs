@@ -24,13 +24,13 @@
             for (int i = 0; i < numberOfCharacters; i++)
             {
                 Console.Write($"Name {i + 1}: ");
-                characterNames[i] = Console.ReadLine().Trim().ToLower(); 
+                characterNames[i] = Console.ReadLine().Trim().ToUpper(); 
             }
             
             //ended statement plus line break
             Console.WriteLine("All names have been entered.\n");
 
-            while (userChoice != "quit")
+            while (userChoice != "QUIT")
             {
                 Console.WriteLine("Choose from one of the following choices:\n" +
                    "\t- Name SEARCH\n" +
@@ -51,7 +51,7 @@
                     //method to check if it is in the array.
                     case "SEARCH":
                         Console.WriteLine("Enter a name to search for: ");
-                        string userName = Console.ReadLine();
+                        string userName = Console.ReadLine().ToUpper().Trim();
                         if (Search(characterNames, userName))
                         {
                             Console.WriteLine($"Yes, {userName} is in the array\n");
@@ -65,12 +65,25 @@
                     //If the user chose how many, it will call the StartWithB method
                     //and return how many names start with the letter B.  
                     case "HOW MANY":
-                        Console.WriteLine($"{StartWithB} names start with the B");
+                        Console.WriteLine($"{StartWithB(characterNames)}" +
+                            $" names start with the B\n");
                             break;
+
+                    //The user choice will be set to QUIT which will
+                    //end the above while loop
+                    case "QUIT":
+                        break;
+
+                    //Default in case anything else is entered
+                    default:
+                        Console.WriteLine("That's not an option. Try again.\n");
+                        break;
                 }
+                
 
 
             }
+            Console.WriteLine("Goodbye!");
         }
 
         /// <summary>
@@ -80,7 +93,10 @@
         /// <returns></returns>
         public static void Print(string[] nameArray)
         {
-            Console.WriteLine(nameArray);
+            for (int i = 0; i < nameArray.Length; i++)
+            {
+                Console.WriteLine(nameArray[i]);
+            }
             return;
         }
 
@@ -89,9 +105,19 @@
         /// </summary>
         /// <param name="hasValue"></param>
         /// <returns></returns>
-        public static bool Search(bool hasValue)
+        public static bool Search(string[] nameArray, string name)
         {
-            return (hasValue);
+            //Check if the name entered by the user is contained in the array
+            //If it is, return true. If it isn't, return false.
+            if (nameArray.Any(name.Contains))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+            
         }
 
         /// <summary>
@@ -99,9 +125,21 @@
         /// </summary>
         /// <param name="howMany"></param>
         /// <returns></returns>
-        public static int StartWithB (int howMany)
+        public static int StartWithB(string[] nameArray)
         {
-            return howMany;
+            int namesStartingWithB = 0;
+
+            //For loop goes through each name entered in the array and checks 
+            //if the first letter is a B or b, using the StartsWith method.
+            for (int i = 0; i < nameArray.Length; i++)
+            {
+                if (nameArray[i].StartsWith('B') || nameArray[1].StartsWith('b'))
+                {
+                    namesStartingWithB++;
+                }
+            }
+            return namesStartingWithB;
+            
         }
     }
 }
