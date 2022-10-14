@@ -23,7 +23,7 @@ namespace Methods_STARTER
             // Method #1 Testing                                                        *
             // TODO: Uncomment this while you are testing your first method             *
             // **************************************************************************
-            /*
+            
             Console.WriteLine(".......................................................");
             
             success = MakesTen(9, 10);
@@ -41,14 +41,14 @@ namespace Methods_STARTER
                 "Do the values 1 and 9 add to 10? OR is one of the numbers 10? {0}",
                 success);
             Console.WriteLine(".......................................................");
-            */
+            
 
 
             // **************************************************************************
             // Method #2 Testing                                                        *
             // TODO: Uncomment this while you are testing your second method            *
             // **************************************************************************
-            /*
+            
             biggest = Largest(1, 2, 3);
             Console.WriteLine(
                 "The largest value of 1, 2, and 3 is: {0}",
@@ -79,14 +79,14 @@ namespace Methods_STARTER
                 "The largest value of 5, 5, and 5 is: {0}",
                            biggest);
             Console.WriteLine(".......................................................");
-            */
+            
 
 
             // **************************************************************************
             // Method #3 Testing                                                        *
             // TODO: Uncomment this while you are testing your third method             *
             // **************************************************************************
-            /*
+            
             word = NotString("candy");
             Console.WriteLine("Your string 'candy' is now: {0}", word);
 
@@ -99,14 +99,14 @@ namespace Methods_STARTER
             word = NotString("nothing");
             Console.WriteLine("Your string 'nothing' is now: {0}", word);
             Console.WriteLine(".......................................................");
-            */
+            
 
 
             // **************************************************************************
             // Method #4 Testing                                                        *
             // TODO: Uncomment this while you are testing your fourth method            *
             // **************************************************************************
-            /*
+            
             word = RemoveIndex("kitten", 1);
             Console.WriteLine("Your string 'kitten' removing 1 is now: {0}", word);
 
@@ -122,27 +122,27 @@ namespace Methods_STARTER
             word = RemoveIndex("kitten", -1);
             Console.WriteLine("Your string 'kitten' removing -1 is now: {0}", word);
             Console.WriteLine(".......................................................");
-            */
+            
 
 
             // **************************************************************************
             // Method #5 Testing                                                        *
             // TODO: Uncomment this while you are testing your fifth method             *
             // **************************************************************************
-            /*
+            
             PrintLetters("rabbit");
             PrintLetters("Hello");
             PrintLetters("");
             PrintLetters("Halloween!");
             Console.WriteLine(".......................................................");
-            */
+            
 
 
             // **************************************************************************
             // Method #6 Testing                                                        *
             // TODO: Uncomment this while you are testing your sixth method             *
             // **************************************************************************
-            /*
+            
             double distance = Distance(0, 0, 0, 0);
             Console.WriteLine("The distance between (0, 0) and (0, 0) is: " + distance);
 
@@ -152,7 +152,7 @@ namespace Methods_STARTER
             distance = Distance(10, 2, 3, 5);
             Console.WriteLine("The distance between (10, 2) and (3, 5) is: " + distance);
             Console.WriteLine(".......................................................");
-            */
+            
 
             #endregion
         }   // End of Main - All static methods must be written AFTER this
@@ -181,13 +181,20 @@ namespace Methods_STARTER
         //   MakesTen(1, 9) → true                                                  *
         // **************************************************************************
 
-       //public static bool MakesTen(int firstNum, int secondNum)
-       // {
-       //     if (firstNum == 10)
-       //     {
-       //         return true;
-       //     }
-       // }
+        public static bool MakesTen(int firstNum, int secondNum)
+        {
+            //Check the first and then the second numbers if they are equal to ten
+            //Then check if combined they equal 10
+            //If any are true, return true. If all are false, return false
+            if (firstNum == 10 || secondNum == 10 || firstNum + secondNum == 10)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
 
         // **************************************************************************
         // TODO: Write method #2                                                    *
@@ -211,7 +218,10 @@ namespace Methods_STARTER
 
         public static int Largest(int a, int b, int c)
         {
+            //Max of the first two values to a variable
             int largestValueOfTwo = Math.Max(a, b);
+
+            //Max of the first two variable, and the third
             int largestValueOfThree = Math.Max((largestValueOfTwo), c);
             return largestValueOfThree;
         }
@@ -237,16 +247,16 @@ namespace Methods_STARTER
 
         public static string NotString(string word)
         {
-            if (word.Length >= 3 && word.Substring(0, 3) != "not")
+            //Check that the string has not in front of it already then return with not
+            //if the string didn't have it, or return itself if it has it already
+            if (word.Length >= 3 && word.Substring(0, 3) == "not")
             {
                 return word;
             }
             else
             {
-                return "not" + word;
+                return "not " + word;
             }
-        
-
 
         }
 
@@ -274,6 +284,8 @@ namespace Methods_STARTER
 
         public static string RemoveIndex(string word, int index)
         {
+            //Check that the index being called is within the bounds of the string 
+            //if it is, then remove that index only, if not, state "out of range"
             if(index < word.Length && index >= 0)
             {
                 string removedString = word.Remove(index, 1);
@@ -306,9 +318,11 @@ namespace Methods_STARTER
 
         public static void PrintLetters(string word)
         {
+            //For loop, that goes through each letter and adds a '-'
             for (int i = 0; i < word.Length; i++)
             {
-                Console.Write(word[i]);
+                //Checks if it is the first or lest letter 
+                //if it is, it just prints the letter out
                 if (i != word.Length - 1)
                 {
                     Console.Write(word[i] + "-");
@@ -317,8 +331,8 @@ namespace Methods_STARTER
                 {
                     Console.Write(word[i]);
                 }
-                Console.WriteLine();
             }
+            Console.WriteLine();
         }
 
         // **************************************************************************
@@ -341,6 +355,7 @@ namespace Methods_STARTER
 
         public static double Distance(int x1, int y1, int x2, int y2)
         {
+            //Many variables to make up the distance formula
             double xDifference = x2 - x1;
             double yDifference = y2 - y1;
             double yDiffSquared = Math.Pow(yDifference, 2);
