@@ -77,7 +77,9 @@ namespace Gradebook_Homework
 
             Divider();
 
+            //print average of the grades
             Console.WriteLine($"Average: {gradeAverage}");
+            Console.WriteLine();
             #endregion
 
             #region Part 3
@@ -87,7 +89,7 @@ namespace Gradebook_Homework
 
             //Ask user for which assignment they want to change
             //add 1 to the index since people don't start at 0
-            Console.WriteLine("Which number grade do you want to replace? ");
+            Console.Write("Which number grade do you want to replace? ");
             userIput = Console.ReadLine().Trim();
             assignmentNumber = int.Parse(userIput);
 
@@ -140,13 +142,55 @@ namespace Gradebook_Homework
 
             Divider();
 
-            Console.WriteLine($"Average: {gradeAverage}");
+            Console.WriteLine($"Final average: {gradeAverage}\n");
             #endregion
 
             #region Part 4
+            //new variables to check above average, and duplicates
+            double aboveAverage = 0;
+            bool areDuplicates = false;
+            
+            //Checks each element and adds one to above average variable if the
+            //element is greater than the average from above
+            for (int i = 0; i < examValues.Length; i++)
+            {
+                if (examValues[i] > gradeAverage)
+                {
+                    aboveAverage++;
+                }
+            }
 
+            //Tell user how many are above average
+            Console.WriteLine($"{aboveAverage} grades are above average.");
 
+            Console.WriteLine();
 
+            //Uses calculate max method (below) and calculate min method (below)
+            //to find the max and min of the array respectively
+            Console.WriteLine($"The highest grade is: {CalculateMax(examValues)}");
+            Console.WriteLine($"The lowest grade is: {CalculateMin(examValues)}\n");
+
+            //Iterates through each index and each following index to compare
+            //wether two indexes are equivalent.
+            for(int i = 0; i < numberOfAssignments; i++)
+            {
+                for(int j = i + 1; j < numberOfAssignments - 1; j++)
+                if(examValues[i] == examValues[j])
+                {
+                    areDuplicates = true;
+                }
+            }
+
+            //Prints that there either are or aren't duplicates based on the
+            //truth value from above.
+            if (areDuplicates == true)
+            {
+                Console.WriteLine("A grade appears more than once in this set of grades");
+            }
+            else
+            {
+                Console.WriteLine("All grades are unique");
+            }
 
             #endregion
         }//End of Main
@@ -188,5 +232,36 @@ namespace Gradebook_Homework
             return sum;
         }
 
+        /// <summary>
+        /// Compares each element to find the maximum
+        /// </summary>
+        /// <param name="valueArray"></param>
+        /// <returns></returns>
+        public static double CalculateMax(double[] valueArray)
+        {
+            double largest = valueArray[0];
+            for(int i = 0; i < valueArray.Length; i++)
+            {
+                if(largest < valueArray[i])
+                    largest = valueArray[i];
+            }
+            return largest;
+        }
+
+        /// <summary>
+        /// Compares each element to find the minimum
+        /// </summary>
+        /// <param name="valueArray"></param>
+        /// <returns></returns>
+        public static double CalculateMin(double[] valueArray)
+        {
+            double smallest = valueArray[0];
+            for (int i = 0; i < valueArray.Length; i++)
+            {
+                if (smallest > valueArray[i])
+                    smallest = valueArray[i];
+            }
+            return smallest;
+        }
     }//End of Program
 }
