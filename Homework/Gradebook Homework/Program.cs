@@ -195,18 +195,6 @@ namespace Gradebook_Homework
             #endregion
         }//End of Main
 
-        /// <summary>
-        /// Prints the name of all the elements of the string array
-        /// </summary>
-        /// <param name="nameArray"></param>
-        public static void Print(string[] nameArray)
-        {
-            for(int i = 0; i < nameArray.Length; i++)
-            {
-                Console.WriteLine(nameArray[i]);
-            }
-            return;
-        }
 
         /// <summary>
         /// Creates a nice visual divider
