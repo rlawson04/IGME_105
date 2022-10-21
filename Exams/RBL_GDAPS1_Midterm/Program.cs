@@ -5,12 +5,11 @@
         static void Main(string[] args)
         {
             //Vars to be used throughout Main
-            string userInput = " ";
-            int userInt = 0;
+            int loopInt = 0;
             double userGrade = 0.0;
 
-            //Print out the GetMenuOption until userInt is changed to 4
-            while (userInt != 4)
+            //Print out the GetMenuOption until loopInt is changed to 4
+            while (loopInt != 4)
             {
 
                 //Prints the GetMenuOption method until case 4 is chosen
@@ -19,6 +18,7 @@
                     //If the user chose 1 ask for a grade and then return the 
                     //letter grade based on their response
                     case 1:
+
                         Console.WriteLine();
                         Console.Write("Enter a grade: ");
                         userGrade = double.Parse(Console.ReadLine());
@@ -32,40 +32,71 @@
                         //User grade is Y when more then 0.0 but less than or equal to 40.0
                         if (userGrade > 0.0 && userGrade <= 40.0)
                         {
-                            Console.WriteLine($"A grade of {userGrade} is a Y\n");  
+                            Console.WriteLine($"A grade of {userGrade} is a Y\n");
                         }
 
                         //User grade is a Z when more than 40.0 but less than or equal to 100.0
-                        if(userGrade > 40.0 && userGrade <= 100)
+                        if (userGrade > 40.0 && userGrade <= 100)
                         {
                             Console.WriteLine($"A grade of {userGrade} is a Z\n");
                         }
 
                         //User grade is ?? when more than 100.0
-                        if(userGrade > 100.0)
+                        if (userGrade > 100.0)
                         {
                             Console.WriteLine($"A grade of {userGrade} is a ??\n");
                         }
                         break;
 
-                    //If the user chose 2 tell them
+                    //Uses the SumEvenNumbers method to return the first 3, 5, and 25
+                    //even numbers in 3 C.WL statements
                     case 2:
+
                         Console.WriteLine();
-                        Console.WriteLine("Chose 2\n");
+                        Console.WriteLine($"The sum of the first 3 numbers is {SumEvenNumbers(3)}.");
+                        Console.WriteLine($"The sum of the first 5 numbers is {SumEvenNumbers(5)}.");
+                        Console.WriteLine($"The sum of the first 25 numbers is {SumEvenNumbers(25)}.\n");
                         break;
 
-                    //If the user chose 3 tell them
+                    //Initiialize an array and fill with the first 6 odd numbers
+                    //Then display them in descending order
+                    //Then display 2 to the power of each number
                     case 3:
+                        
+                        //Initializing and filling the array
+                        int[] numbers = new int[6];
+                        numbers[0] = 0;
+                        for (int i = 0; i < 6; i++)
+                        { 
+                            numbers[i] = i * 2 + 1;
+                        }
+
                         Console.WriteLine();
-                        Console.WriteLine("Chose 3\n");
+                        
+                        //Displaying each odd number from 11 to 1
+                        for (int i = 5; i >= 0; i--)
+                        {
+                            Console.WriteLine($"numbers[{i}] is {numbers[i]}");
+                        }
+
+                        Console.WriteLine();
+                        
+                        //Print two to the power of each of the first 6 odd numbers
+                        for (int i = 0; i < 6; i++)
+                        {
+                            Console.WriteLine($"2 to the {numbers[i]} is {Math.Pow(2, numbers[i])}");
+                        }
+
+                        Console.WriteLine();
                         break;
 
-                    //If the user chose 4, say goodbye and change userInt
+                    //If the user chose 4, say goodbye and change loopInt
                     //to four so the while loop stops
                     case 4:
+
                         Console.WriteLine();
                         Console.WriteLine("Goodbye!\n");
-                        userInt = 4;
+                        loopInt = 4;
                         break;
                 }
             }
@@ -110,7 +141,24 @@
             
         }
 
+        /// <summary>
+        /// Method that takes an input of n, then finds the sum of the first n even numbers
+        /// </summary>
+        /// <param name="n"></param>
+        /// <returns></returns>
+        public static int SumEvenNumbers(int n)
+        {
+            //Variable for the value returned at the end
+            int result = 0;
+           
+            //iterate n times where n is the integer passed through the method
+            for (int i = 0; i <= n; i++)
+            {
+                result += 2 * i;
+            }
 
-        public static 
+            //return the result after the loop iterates through n times
+            return result;
+        }
     }//End of Program
 }
