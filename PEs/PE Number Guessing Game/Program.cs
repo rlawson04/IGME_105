@@ -23,19 +23,10 @@ namespace PE_Number_Guessing_Game
                 Console.Write($"Turn number {i}: Enter your guess: ");
                 userInput = Console.ReadLine();
                 bool success = int.TryParse(userInput, out result);
-
-                //If the user is inputting a non int value, it reprompts them
+                
+                //Again If the user is inputting a non int value, it reprompts them
                 //while not changing the 
                 while (!success)
-                {
-                    Console.WriteLine("Invalid Guess - try again\n");
-                    Console.Write($"Turn number {i}: Enter your guess: ");
-                    userInput = Console.ReadLine();
-                    success = int.TryParse(userInput, out result);
-                }
-
-                //If the users value is less than 0 or more than 100 reprompt them
-                while (result < 0 || result > 100)
                 {
                     Console.WriteLine("Invalid Guess - try again\n");
                     Console.Write($"Turn number {i}: Enter your guess: ");
@@ -47,6 +38,21 @@ namespace PE_Number_Guessing_Game
                 //random number, and print too high or too low respectively
                 if (success)
                 {
+                    //while the users value is less than 0 or more than 100 reprompt them
+                    while (result < 0 || result > 100)
+                    {
+                        Console.WriteLine("Invalid Guess - try again\n");
+                        Console.Write($"Turn number {i}: Enter your guess: ");
+                        userInput = Console.ReadLine();
+                        success = int.TryParse(userInput, out result);
+
+                        //reprompt if again the user inputs an invalid option
+                        if(!success)
+                        {
+                            result = -1;
+                        }
+                    }
+
                     if (result > randomNum)
                     {                        
                         Console.WriteLine("Too high");
@@ -65,7 +71,7 @@ namespace PE_Number_Guessing_Game
                 if (result == randomNum)
                 {
                     Console.WriteLine();
-                    Console.WriteLine($"Correct you won in {i} turns.");
+                    Console.WriteLine($"Correct! you won in {i} turns.");
                     i = 9;
                 }
             }
