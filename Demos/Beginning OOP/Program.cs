@@ -16,6 +16,8 @@ namespace Beginning_OOP
 
             firstPlayer.Print();
             secondPlayer.Print();
+
+            int attackDamageFromP1 = firstPlayer.Attack();
         }
     }
 }
