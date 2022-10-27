@@ -20,32 +20,33 @@ namespace MagicEightBall_STARTER
         // *** Put the other 2 fields (owner and times shaken) here! ***
         // *************************************************************
 
-
+        private string owner;
+        private int timesShaken;
 
         // --------------------------------------------------------------------
         // Constructors of this class
         // --------------------------------------------------------------------
 
-        // *****************************************
-        // *** Add comments to this constructor! ***
-        // *****************************************
+        /// <summary>
+        /// Default constructor 
+        /// </summary>
         public MagicEightBall()
         {
             // Initialize the Random object and the responses array.
             randomGenerator = new Random();
             responses = new string[5];
             responses[0] = "It is certain";
-
-            // *******************************************************
-            // *** Assign 4 more responses to the responses array! ***
-            // *******************************************************
-
+            responses[1] = "No";
+            responses[2] = "Not probable";
+            responses[3] = "Of course";
+            responses[4] = "Try again later";
 
             // *******************************************************
             // *** Assign default value to the owner               ***
             // *** and another default value to times shaken!      ***
             // *******************************************************
-
+            owner = "Person";
+            timesShaken = 0;
         }
 
         // *****************************************************
@@ -53,16 +54,28 @@ namespace MagicEightBall_STARTER
         // *** And add comments to it!                       ***
         // *****************************************************
 
-
+        public MagicEightBall(string name)
+        {
+            randomGenerator = new Random();
+            responses = new string[5];
+            responses[0] = "It is certain";
+            responses[1] = "No";
+            responses[2] = "Not probable";
+            responses[3] = "Of course";
+            responses[4] = "Try again later";
+            owner = name;
+            timesShaken = 0;
+        }
 
         // --------------------------------------------------------------------
         // Methods of this class
         // --------------------------------------------------------------------
 
 
-        // *****************************************
-        // *** Add comments to this method!      ***
-        // *****************************************
+        /// <summary>
+        /// generates random number and chooses the mathing response
+        /// </summary>
+        /// <returns></returns>
         public string ShakeBall()
         {
             // Randomly chooses one of the 5 possible responses
@@ -73,25 +86,36 @@ namespace MagicEightBall_STARTER
             //   and save the value in a string variable.
             string randomResponse = responses[randomNumber];
 
-            // *******************************************
-            // *** Update times shaken!                ***
-            // *******************************************
+            timesShaken++;
 
-
-            // *******************************************
-            // *** Return randomly chosen response!    ***
-            // *******************************************
-
-            // Change this to return the correct thing.
-            return "";
+            return randomResponse;
         }
 
 
-        // *****************************************************
-        // *** Create the Report method here!                ***
-        // *** And add comments to it!                       ***
-        // *****************************************************
+        /// <summary>
+        /// Reports the number of times the ball has been shaken
+        /// returns different outputs depending on how many times it has 
+        /// been shaken
+        /// </summary>
+        /// <returns></returns>
+        public string Report()
+        {
+            //returns when timesShaken is 0
+            return $"{owner} has not shaken the ball yet";
+           
+            //returns that it was shaken once or twice
+            if (timesShaken == 1 || timesShaken == 2)
+            {
+                return $"{owner} has shaken the ball {timesShaken} times.";
+            }
 
+            //returns it was shaken 3 or more times
+            if (timesShaken >= 3)
+            {
+                return $"{owner}  has shaken the ball {timesShaken} times. That’s a lot of questions!";
+            }
+
+        }
 
 
     }

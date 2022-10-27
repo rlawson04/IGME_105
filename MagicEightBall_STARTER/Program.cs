@@ -8,10 +8,7 @@
             string userChoice = "";
             string owner = "";
 
-            // ********************************************
-            // *** Declare a MagicEightBall object here ***
-            // ********************************************
-
+            MagicEightBall eightBall = new MagicEightBall();
 
             // Initial welcome statement
             Console.WriteLine("Welcome to the Magic 8 Ball simulator!");
@@ -22,7 +19,7 @@
             // *** Now that you have the owner,               ***
             // *** initialize the MagicEightBall object here! ***
             // **************************************************
-
+            eightBall = new MagicEightBall(owner);
 
             // Menu item that loops based on user's choice
             do
@@ -46,24 +43,14 @@
                         " > Let's see what the ball says to your question \"{0}\"...",
                         userQuestion);
 
-                    // *************************************************
-                    // *** Call the ball's Shake method here and     ***
-                    // *** print the results of the returned string! ***
-                    // *************************************************
-
                     // Call Shake()  to initialize the eightBallSays variable
-                    string eightBallSays = "";
+                    string eightBallSays = eightBall.ShakeBall();
                     Console.WriteLine(" > The Magic 8 ball says: " + eightBallSays);
                 }
                 else if (userChoice == "report")
                 {
-                    // *************************************************
-                    // *** Call the ball's Report method here and    ***
-                    // *** print the results of the returned string! ***
-                    // *************************************************
-
                     // Call Report()  to initialize the eightBallSays variable
-                    string reportFromBall = "";
+                    string reportFromBall = eightBall.Report();
                     Console.WriteLine(" > " + reportFromBall);
                 }
                 else if (userChoice == "quit")
