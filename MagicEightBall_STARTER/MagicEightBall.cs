@@ -100,9 +100,6 @@ namespace MagicEightBall_STARTER
         /// <returns></returns>
         public string Report()
         {
-            //returns when timesShaken is 0
-            return $"{owner} has not shaken the ball yet";
-           
             //returns that it was shaken once or twice
             if (timesShaken == 1 || timesShaken == 2)
             {
@@ -114,7 +111,11 @@ namespace MagicEightBall_STARTER
             {
                 return $"{owner}  has shaken the ball {timesShaken} times. That’s a lot of questions!";
             }
-
+            else
+            {
+                //returns when timesShaken is 0
+                return $"{owner} has not shaken the ball yet";
+            }
         }
 
 
