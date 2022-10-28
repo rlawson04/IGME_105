@@ -1,5 +1,5 @@
 ﻿
-// Erin Cascioli
+// Reilly Lawson    
 // 10/28/2022
 // Demo: Library with multiple objects and arrays of objects
 
@@ -74,13 +74,13 @@ namespace LibraryDemo_MultipleObjectsArrays
 
             if (userResponse == "yes")
             {
-                Console.Write("How many pages do you want to read?");
+                Console.Write("How many pages do you want to read? ");
                 parsedInteger = 0;
                 bool parseWorked = int.TryParse(Console.ReadLine(), out parsedInteger);
 
-                while (!parseWorked)
+                while (!parseWorked || parsedInteger <= 0)
                 {
-                    Console.Write("Nope. Please enter an integer.");
+                    Console.Write("Nope. Please enter a positive integer. ");
                     parseWorked = int.TryParse(Console.ReadLine(), out parsedInteger);
                 }
             }

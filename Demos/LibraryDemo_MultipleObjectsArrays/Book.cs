@@ -63,7 +63,6 @@ namespace LibraryDemo_MultipleObjectsArrays
 
 
         /// <summary>
-        /// Constructs a used book, or a book that has been previously read.
         /// Typically used for data that will be changed later.
         /// </summary>
         public Book()
