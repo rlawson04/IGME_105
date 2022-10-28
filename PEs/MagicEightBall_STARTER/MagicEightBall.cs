@@ -12,14 +12,9 @@ namespace MagicEightBall_STARTER
         // Fields of this class
         // --------------------------------------------------------------------
 
-        // 2 included fields from the exercise
+        // 4 fields
         private string[] responses;
         private Random randomGenerator;
-
-        // *************************************************************
-        // *** Put the other 2 fields (owner and times shaken) here! ***
-        // *************************************************************
-
         private string owner;
         private int timesShaken;
 
@@ -40,20 +35,16 @@ namespace MagicEightBall_STARTER
             responses[2] = "Not probable";
             responses[3] = "Of course";
             responses[4] = "Try again later";
-
-            // *******************************************************
-            // *** Assign default value to the owner               ***
-            // *** and another default value to times shaken!      ***
-            // *******************************************************
+            
+            //Set the default owner to Person and timesshaken to 0
             owner = "Person";
             timesShaken = 0;
         }
 
-        // *****************************************************
-        // *** Create a parameterized constructor here!      ***
-        // *** And add comments to it!                       ***
-        // *****************************************************
-
+        /// <summary>
+        /// Parameterized constructor that takes the owner parameter
+        /// </summary>
+        /// <param name="name"></param>
         public MagicEightBall(string name)
         {
             randomGenerator = new Random();

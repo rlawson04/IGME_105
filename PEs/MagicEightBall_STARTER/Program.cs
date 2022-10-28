@@ -15,10 +15,7 @@
             Console.Write("Who owns this ball? ");
             owner = Console.ReadLine();
 
-            // **************************************************
-            // *** Now that you have the owner,               ***
-            // *** initialize the MagicEightBall object here! ***
-            // **************************************************
+            // Initialize parameterized constructor
             eightBall = new MagicEightBall(owner);
 
             // Menu item that loops based on user's choice
