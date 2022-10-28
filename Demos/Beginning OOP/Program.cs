@@ -17,6 +17,7 @@ namespace Beginning_OOP
             firstPlayer.Print();
             secondPlayer.Print();
 
+            // Use attack method to damage an object
             int attackDamageFromP1 = firstPlayer.Attack();
         }
     }
