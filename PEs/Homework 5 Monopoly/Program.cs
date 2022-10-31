@@ -31,6 +31,9 @@ namespace Homework_5_Monopoly
             Console.WriteLine();
             Console.WriteLine($"Average roll for a single die: {sumOfDice / 100}");
 
+
+
         }// End of Main
+
     }//End of Program
 }
