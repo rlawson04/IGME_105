@@ -58,7 +58,7 @@ namespace Demo_PropertiesEncapsulation
             erin.Print();
             Console.WriteLine();
 
-            // Access public fields
+            // Access public fields of the class
             employeeName = erin.name;
             employeeSalary = erin.salary;
             Console.WriteLine("{0}'s salary (per year) is {1:C2}. \n",
