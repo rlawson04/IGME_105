@@ -23,6 +23,97 @@ namespace PE_Properties
         // Properties
         //--------------------------
 
+        /// <summary>
+        /// Read-only property for title
+        /// </summary>
+        public string Title
+        {
+            get
+            {
+                return title;
+            }
+        }
+
+        /// <summary>
+        /// Read-only property for author
+        /// </summary>
+        public string Author
+        {
+            get
+            {
+                return author;
+            }
+        }
+
+        /// <summary>
+        /// Read-only property for pages
+        /// </summary>
+        public int Pages
+        {
+            get
+            {
+                return pages;
+            }
+        }
+
+        /// <summary>
+        /// Get and Set property for owner
+        /// </summary>
+        public string Owner
+        {
+            get
+            {
+                return owner;
+            }
+
+            
+            set
+            {
+                if (value.Length > 0)
+                {
+                    owner = value;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Returns timesRead and if timesRead is greater than what was already there
+        /// change the value of timesRead and return it
+        /// </summary>
+        public int TimesRead
+        {
+            get
+            {
+                return timesRead;
+            }
+
+            set
+            {
+                if (timesRead > value)
+                {
+                    timesRead = value;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Read only property if book has been read, return true
+        /// If not, return false
+        /// </summary>
+        public bool IsUsed
+        {
+            get
+            {
+                if (timesRead > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        }
 
         //--------------------------
         // Constructors
@@ -51,5 +142,19 @@ namespace PE_Properties
         //--------------------------
         // Methods
         //--------------------------
-    }
+
+        /// <summary>
+        /// Prints out all the information of the book
+        /// </summary>
+        void Print()
+        {
+            Console.WriteLine("Title: " + title);
+            Console.WriteLine("Author: " + author);
+            Console.WriteLine("Pages: " + pages);
+            Console.WriteLine("Owner: " + owner);
+            Console.WriteLine("Times Read: " + timesRead);
+            Console.WriteLine("Is Used: " + IsUsed);
+        }
+
+    }// End of class
 }
