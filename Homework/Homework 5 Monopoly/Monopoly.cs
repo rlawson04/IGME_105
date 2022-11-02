@@ -81,29 +81,75 @@ namespace Homework_5_Monopoly
         // Methods
         //-------------------------------------------------
 
+        /// <summary>
+        /// Iterates through 1000 players taking 1000 trips around the board
+        /// and returns the percentage of landing on each space
+        /// </summary>
+        /// <returns></returns>
         public double[] Analyze()
         {
             int[] visits = new int[propertyNames.Length];
             double totalVisits = 0.0;
             int position = 0;
+            
 
+            // Iterates through all the players 
             for (int i = 0; i < numberOfPlayers; i++)
             {
-                
-                while(position >= 40)
+                tripsAroundBoard = 0;
+                // Iterates through 1000 trips around the board
+                while (tripsAroundBoard < 25)
                 {
                     position += dice.RollDice(2);
+
+                    // When the players position is greater than 40 (past go), it adds
+                    // one trip around the board and takes 40 away from the position
+                    if (position >= 40)
+                    {
+                        position = position - 40;
+                        tripsAroundBoard++;
+                    }
+
+                    // When the player lands on go to jail, they go past go to the jail
+                    if (position == 30)
+                    {
+                        position = 10;
+                        tripsAroundBoard++;
+                    }
+
+                    // Marks one to the position the player is on and one to total visits
                     visits[position]++;
+                    totalVisits++;
 
+                    
                 }
 
-                if (position >= 40)
-                {
-                    position = position - 40;
-                }
+               
             }
 
-            return  ;
+            // Makes a double array to hold the percentages of landing on the given spot
+            // which is iterated through using a for loop
+            double[] percentages = new double[propertyNames.Length];
+            for (int j = 0; j < propertyNames.Length; j++)
+            {
+                percentages[j] = (visits[j] / totalVisits) * 100;
+            }
+
+            return percentages;
         }
+
+        /// <summary>
+        /// Takes a double array and prints out each board space followed by 
+        /// the formatted percentage from the array
+        /// </summary>
+        /// <param name="visitPercentages"></param>
+        public void PrintResults(double[] visitPercentages)
+        {
+            for (int i = 0; i < propertyNames.Length; i++)
+            {
+                Console.WriteLine(propertyNames[i] + ": {0:F2}", visitPercentages[i]);
+            }
+        }
+
     }// End of class
 }
