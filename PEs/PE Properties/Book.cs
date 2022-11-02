@@ -89,7 +89,7 @@ namespace PE_Properties
 
             set
             {
-                if (timesRead > value)
+                if (timesRead < value)
                 {
                     timesRead = value;
                 }
@@ -146,7 +146,7 @@ namespace PE_Properties
         /// <summary>
         /// Prints out all the information of the book
         /// </summary>
-        void Print()
+         public void Print()
         {
             Console.WriteLine("Title: " + title);
             Console.WriteLine("Author: " + author);

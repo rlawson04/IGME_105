@@ -49,13 +49,13 @@ namespace PE_Properties
             Book book= new Book(userBook, userAuthor, userOwner, userPages);
 
             // Prints the menu that the user can select from
-            Console.WriteLine("You may now type any of the following command:");
+            Console.WriteLine("\nYou may now type any of the following command:");
             Console.WriteLine("[title, author, pages, owner, read, used, print, quit]");
 
             // A while loop that keeps running until the user chooses quit for the user to interact with
             while (userInput != "QUIT")
             {
-                Console.Write("What would you like to do?");
+                Console.Write("\nWhat would you like to do? ");
                 userInput = Console.ReadLine().ToUpper().Trim();
 
                 // A switch with each case from the menu above
@@ -79,7 +79,7 @@ namespace PE_Properties
                     // Asks the user if they want to change the owner of the book
                     // Then changes the book.Owner property to the new owner
                     case "OWNER":
-                        Console.Write("Would you like to change the owner?");
+                        Console.Write("Would you like to change the owner? ");
                         userInput2 = Console.ReadLine().ToUpper().Trim();
                         if (userInput2 == "YES")
                         {
@@ -119,6 +119,7 @@ namespace PE_Properties
 
                     // Uses the Print method to print out all the information
                     case "PRINT":
+                        book.Print();
                         break;
 
                     // Exits the while loop
