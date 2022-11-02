@@ -19,7 +19,7 @@ namespace Homework_5_Monopoly
                 Console.Write($"{value} ");
             }
             Console.WriteLine();
-            Console.WriteLine($"Average roll for a single die: {sumOfDice/100}");
+            Console.WriteLine($"Average roll for a single die: {sumOfDice/100}\n");
 
             for (int i = 0; i < 100; i++)
             {

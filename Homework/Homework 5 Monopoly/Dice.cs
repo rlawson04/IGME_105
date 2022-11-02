@@ -13,6 +13,13 @@ namespace Homework_5_Monopoly
 
         //Constructors
         
+        /// <summary>
+        /// Default constructor for the Dice object
+        /// </summary>
+        public Dice ()
+        {
+            randomNum = new Random();
+        }
 
         //Methods
         
