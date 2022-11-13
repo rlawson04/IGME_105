@@ -1,39 +1,49 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Inheritance
 {
-    internal class Zombie : Monster
+    internal class Vampire : Monster
     {
         //----------------------------------------------------------
         // Fields
         //----------------------------------------------------------
 
-        protected double rateOfDecay;
+        protected double rateOfHunger;
+        protected string form;
 
         //----------------------------------------------------------
         // Properties
         //----------------------------------------------------------
 
-        // Read-only property that returns rateOfDecay
-        public double RateOfDecay
+        // Read-only property that returns rateOfHunger
+        public double RateOfHunger
         {
-            get { return rateOfDecay; }
+            get { return rateOfHunger; }
+        }
+
+        // Read-only property that returns form
+        public string Form
+        {
+            get { return form; }
         }
 
         //----------------------------------------------------------
         // Constructors
         //----------------------------------------------------------
 
-        // Parameterized constructor that takes information for this and parent class
-        public Zombie(string name, int age, double constitution)
-            :   base(name, age, constitution, true)
+
+        public Vampire(string name, int age, double constitution)
+            : base(name, age, constitution, false)
         {
-            rateOfDecay = 0.93;
+            rateOfHunger = constitution * 0.08;
+            form = "human";
         }
+
 
         //----------------------------------------------------------
         // Methods
@@ -45,25 +55,30 @@ namespace Inheritance
         /// </summary>
         public void DayPasses()
         {
-            constitution = constitution * rateOfDecay;
-            if ( constitution < 1)
+            constitution = constitution - rateOfHunger;
+            if (constitution <= 60)
             {
-                currentlyAnimated = false;  
+                rateOfHunger = rateOfHunger + 2;
+            }
+            if (constitution < 1)
+            {
+                currentlyAnimated = false;
             }
         }
 
         /// <summary>
-        /// Prints out information of Zombie using the parent class' fields
+        /// Prints out information of Vampire using the parent class' fields
         /// </summary>
-        public void PrintZombie()
+        public void PrintVampire()
         {
-            Console.WriteLine("Zombie information:");
+            Console.WriteLine("Vampire information:");
             Console.WriteLine("Name: " + name);
             Console.WriteLine("Age: " + age);
-            Console.WriteLine("Constitution: " + String.Format("{0:0.00}", constitution));
+            Console.WriteLine("Constitution: " + constitution);
             Console.WriteLine("Undead? " + undead);
             Console.WriteLine("Animated? " + currentlyAnimated);
-            Console.WriteLine("Decay rate: " + rateOfDecay);
+            Console.WriteLine("Decay rate: " + rateOfHunger);
+            Console.WriteLine($"Currently in {form} form");
 
         }
     }
