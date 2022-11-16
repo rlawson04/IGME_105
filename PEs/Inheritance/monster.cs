@@ -78,15 +78,53 @@ namespace Inheritance
         //---------------------------------------------------
 
         /// <summary>
-        /// Method that prints out all the information from the class
+        /// A virtual method that prints out all the information from the class
         /// </summary>
-        public void PrintMonster()
+        public virtual void Print()
         {
             Console.WriteLine("Name: " + name);
             Console.WriteLine("Age: " + age);
-            Console.WriteLine("Constitution: " + constitution);
+            Console.WriteLine("Constitution: " + String.Format("{0:0.00}", constitution));
             Console.WriteLine("Undead? " + undead);
             Console.WriteLine("Animated? " + currentlyAnimated);
+            
+        }
+
+        /// <summary>
+        /// Virtual method that prints a unique way of eating a victim
+        /// </summary>
+        public virtual void Eat(string victimName)
+        {
+            Console.WriteLine($"{name} devours {victimName}.");
+        }
+
+        /// <summary>
+        /// An overridden method that will return a sentence
+        /// based on the stats of the monster
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            if (currentlyAnimated == false && undead == true)
+            {
+                return $"{name}'s constitution has fallen to zero. " +
+                    $"They are no longer animated and cannot be revived.";
+            }
+            else if (currentlyAnimated == false && undead == false)
+            {
+                return $"{name}'s constitution has fallen to zero. " +
+                    $"They are no longer animated but can be resuscitated.";
+            }
+            else if (currentlyAnimated == true && age >= 60)
+            {
+                return $"{name} is old at the ripe age of {age}." +
+                    $" They are existing with {constitution} constitution.";
+            }
+            else 
+            {
+                return $"{name} is young at {age} years old." +
+                    $" They are existing with {constitution} constitution.";
+            }
             
         }
     }

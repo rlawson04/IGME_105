@@ -53,18 +53,43 @@ namespace Inheritance
         }
 
         /// <summary>
-        /// Prints out information of Zombie using the parent class' fields
+        /// Prints out information of Zombie using the parent class' print method
         /// </summary>
-        public void PrintZombie()
+        public override void Print()
         {
-            Console.WriteLine("Zombie information:");
-            Console.WriteLine("Name: " + name);
-            Console.WriteLine("Age: " + age);
-            Console.WriteLine("Constitution: " + String.Format("{0:0.00}", constitution));
-            Console.WriteLine("Undead? " + undead);
-            Console.WriteLine("Animated? " + currentlyAnimated);
+            Console.WriteLine("Zombie information: ");
+            base.Print();
             Console.WriteLine("Decay rate: " + rateOfDecay);
+        }
 
+        /// <summary>
+        /// Overridden method that prints a unique way of eating a victim
+        /// </summary>
+        /// <param name="victimName"></param>
+        public override void Eat(string victimName)
+        {
+            Console.WriteLine($"{name} chomps on the brains of {victimName}" +
+                $" but is still hungry...");
+        }
+
+        /// <summary>
+        /// An overriden method that returns strings based on the zombies stats 
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            
+            if (currentlyAnimated == true)
+            {
+                return base.ToString() +
+                    $" The zombie {name} still has time left in the game";
+            }
+            if (currentlyAnimated == false)
+            {
+                return base.ToString() +
+                    $" As a zombie, {name} lost the ability to play in this game";
+            }
+            return ToString();
         }
     }
 }

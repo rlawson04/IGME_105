@@ -4,17 +4,18 @@
     {
         static void Main(string[] args)
         {
+            /*
             // Create two monster objects from the monster class
             Monster monster1 = new Monster();
             Monster monster2 = new Monster("Josh Allen", 26, 100.5, true);
 
             // Print information of default monster
-            monster1.PrintMonster();
+            monster1.Print();
             
             Console.WriteLine();
 
             // Print information of parameterized monster
-            monster2.PrintMonster();
+            monster2.Print();
 
             Console.WriteLine();
 
@@ -34,7 +35,7 @@
             Zombie zombie = new Zombie("Rob", 36, 100);
 
             // Print information of parameterized zombie
-            zombie.PrintZombie();
+            zombie.Print();
 
             Console.WriteLine();
 
@@ -49,7 +50,7 @@
             Vampire vampire = new Vampire("Dracula", 496, 100);
 
             // Print information of parameterized vampire
-            vampire.PrintVampire();
+            vampire.Print();
 
             Console.WriteLine();
 
@@ -68,7 +69,7 @@
             }
 
             // Re prints information after three days
-            zombie.PrintZombie();
+            zombie.Print();
 
             Console.WriteLine();
 
@@ -79,8 +80,107 @@
             }
 
             // Re prints information after five days
-            vampire.PrintVampire();
+            vampire.Print();
+            */
 
+            // Four instances of monsters with varying information
+            Monster monsterA = new Monster("A", 75, 90, true);
+            Monster monsterB = new Monster("B", 12, 73, false);
+            Monster monsterC = new Monster("C", 46, 0, true);
+            Monster monsterD = new Monster("D", 98, 0, false);
+
+            // Prints out monsterA's information
+            monsterA.Print();
+
+            Console.WriteLine();
+
+            // Monster B eats Princess Peach
+            monsterB.Eat("Princess Peach");
+
+            // Calls ToString method on all monsters. A and B explicitly, 
+            // C and D in a C.WL statement
+            Console.WriteLine(monsterA.ToString());
+            Console.WriteLine(monsterB.ToString());
+            Console.WriteLine(monsterC);
+            Console.WriteLine(monsterD);
+            Console.WriteLine();
+
+            // Creates two instances of zombies 
+            Zombie Guts = new Zombie("Guts", 26, 100);
+            Zombie Munch = new Zombie("Munch", 39, 0);
+
+            // Munch's info is printed 
+            Munch.Print();
+            Console.WriteLine();
+
+            // Guts eats a koopa troopa
+            Guts.Eat("Koopa Troopa");
+            Console.WriteLine();
+
+            // Calls to string on both zombies
+            Console.WriteLine(Guts.ToString());
+            Console.WriteLine(Munch.ToString());
+            Console.WriteLine();
+
+            // Creates three instances of bampires
+            Vampire Kalon = new Vampire("Kalon", 1154, 53);
+            Vampire Calantha = new Vampire("Calantha", 49, 20);
+            Vampire Dragos = new Vampire("Dragos", 344, 0);
+
+
+            // Prints Kalon's information
+            Kalon.Print();
+            Console.WriteLine();
+
+            // Calantha shapeshifts and then eats a piranha plant
+            Calantha.Shapeshift();
+            Calantha.Eat("Piranha Plant");
+            Console.WriteLine();
+
+            // Dragos attempts to shapeshift
+            Dragos.Shapeshift();
+            Console.WriteLine();
+
+            // Calls ToString on all vampires
+            Console.WriteLine(Kalon.ToString());
+            Console.WriteLine(Calantha.ToString());
+            Console.WriteLine(Dragos.ToString());
+            Console.WriteLine();
+
+            // Creates a list of monsters and adds each monster initialized above
+            List<Monster> monsters = new List<Monster>();
+            monsters.Add(monsterA);
+            monsters.Add(monsterB);
+            monsters.Add(monsterC);
+            monsters.Add(monsterD);
+            monsters.Add(Guts);
+            monsters.Add(Munch);
+            monsters.Add(Kalon);
+            monsters.Add(Calantha);
+            monsters.Add(Dragos);
+
+            // Iterates through each monster in the list
+            foreach(Monster m in monsters)
+            {
+                // Prints the monsters information
+                m.Print();
+                
+                // Checks if a given monster is a vampire, and then transforms them
+                if (m is Vampire)
+                {
+                    Vampire vampire = (Vampire)m;
+                    vampire.Shapeshift();
+                    
+                }
+
+                // Checks if a given monster is a zombie, and then has them eat a goomba
+                if (m is Zombie)
+                {
+                    Zombie zombie = (Zombie)m;
+                    zombie.Eat("Goomba");
+                }
+                Console.WriteLine();
+            }
         }
     }
 }
