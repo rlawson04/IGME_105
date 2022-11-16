@@ -1,5 +1,7 @@
 ﻿using System;
-
+// Reilly Lawson
+// 11/16/2022
+// Practicing throwing and catching exceptions 
 
 
 namespace Backpack_PE

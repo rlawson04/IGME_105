@@ -28,7 +28,12 @@ namespace Inheritance
         // Constructors
         //----------------------------------------------------------
 
-        // Parameterized constructor that takes information for this and parent class
+        /// <summary>
+        /// Parameterized constructor that takes information for this and parent class
+        /// </summary>
+        /// <param name="name"> takes in a string </param>
+        /// <param name="age"> takes in an int </param>
+        /// <param name="constitution"> takes in a double </param>
         public Zombie(string name, int age, double constitution)
             :   base(name, age, constitution, true)
         {
@@ -65,7 +70,7 @@ namespace Inheritance
         /// <summary>
         /// Overridden method that prints a unique way of eating a victim
         /// </summary>
-        /// <param name="victimName"></param>
+        /// <param name="victimName"> takes in a string </param>
         public override void Eat(string victimName)
         {
             Console.WriteLine($"{name} chomps on the brains of {victimName}" +
@@ -75,7 +80,7 @@ namespace Inheritance
         /// <summary>
         /// An overriden method that returns strings based on the zombies stats 
         /// </summary>
-        /// <returns></returns>
+        /// <returns> a string depending on the stats of the zombie </returns>
         public override string ToString()
         {
             

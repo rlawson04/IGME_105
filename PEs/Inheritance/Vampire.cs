@@ -36,7 +36,12 @@ namespace Inheritance
         // Constructors
         //----------------------------------------------------------
 
-
+        /// <summary>
+        /// Parameterized constructor for vampire 
+        /// </summary>
+        /// <param name="name"> takes in a string </param>
+        /// <param name="age"> takes in an int </param>
+        /// <param name="constitution"> takes in a double </param>
         public Vampire(string name, int age, double constitution)
             : base(name, age, constitution, false)
         {
@@ -80,9 +85,10 @@ namespace Inheritance
         /// <summary>
         /// Overridden method that prints a unique way of eating a victim
         /// </summary>
-        /// <param name="victimName"></param>
+        /// <param name="victimName"> takes in a string </param>
         public override void Eat(string victimName)
         {
+            constitution = 100;
             Console.WriteLine($"{name} drinks the blood of {victimName}" +
                 $" and feels restored.");
         }
@@ -116,7 +122,7 @@ namespace Inheritance
         /// <summary>
         /// An overriden method that returns strings based on the vampires stats 
         /// </summary>
-        /// <returns></returns>
+        /// <returns> a string depending on the stats of the vampire </returns>
         public override string ToString()
         {
             if (constitution > 60)

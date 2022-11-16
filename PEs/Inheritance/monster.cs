@@ -45,7 +45,9 @@ namespace Inheritance
         // Constructors
         //---------------------------------------------------
 
-        // Default constructor for monster
+        /// <summary>
+        /// Default constructor for monster
+        /// </summary>
         public Monster()
         {
             name = "unknown";
@@ -56,7 +58,13 @@ namespace Inheritance
 
         }
 
-        // Parameterized constructor that takes name, age, constitution, and undead
+        /// <summary>
+        /// Parameterized constructor that takes name, age, constitution, and undead
+        /// </summary>
+        /// <param name="name"> takes in a string  </param>
+        /// <param name="age"> </param>
+        /// <param name="constitution"> </param>
+        /// <param name="undead"> </param>
         public Monster(string name, int age, double constitution, bool undead)
         {
             this.name = name;
@@ -102,7 +110,7 @@ namespace Inheritance
         /// An overridden method that will return a sentence
         /// based on the stats of the monster
         /// </summary>
-        /// <returns></returns>
+        /// <returns> </returns>
         public override string ToString()
         {
             if (currentlyAnimated == false && undead == true)
