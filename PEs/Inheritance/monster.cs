@@ -110,7 +110,7 @@ namespace Inheritance
         /// An overridden method that will return a sentence
         /// based on the stats of the monster
         /// </summary>
-        /// <returns> </returns>
+        /// <returns> a unique string depending on the monsters stats </returns>
         public override string ToString()
         {
             if (currentlyAnimated == false && undead == true)
