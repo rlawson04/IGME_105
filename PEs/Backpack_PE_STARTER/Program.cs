@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Linq.Expressions;
+using System.Reflection;
 // Reilly Lawson
 // 11/16/2022
 // Practicing throwing and catching exceptions 
@@ -27,32 +29,21 @@ namespace Backpack_PE
             Backpack banditPack = null;
             List<string> stolenItems = null;
 
-            // Initialize objects in the game:
-            // ****************************************************************
-            // TODO: Uncomment these object initializations when your Backpack class is done!
-            /*
+            // Initialize objects in the game:S
             dashPack = new Backpack(npcName_1);
             banditPack = new Backpack(npcName_2);
             stolenItems = new List<string>();
-            */
-            // ****************************************************************
+            
 
 
-            // Inspect items in each pack
-            // ****************************************************************
-            // TODO: Uncomment these method calls when your Backpack class is done!
-            /*
+            // Inspect items in each pack     
             dashPack.PrintPackContents();
             banditPack.PrintPackContents();
-            */
-            // ****************************************************************
+
             Console.WriteLine("-----------------------------");
 
 
             // Insert items into the two backpacks:
-            // ****************************************************************
-            // TODO: Uncomment these method calls when your Backpack class is done!
-            /*
             dashPack.AddToPack("catnip");
             dashPack.AddToPack("treats");
             dashPack.AddToPack("cat toy");
@@ -60,19 +51,16 @@ namespace Backpack_PE
             banditPack.AddToPack("peanut butter");
             banditPack.AddToPack("tennis ball");
             banditPack.AddToPack("frisbee");
-            */
-            // ****************************************************************
+            
+     
             Console.WriteLine("-----------------------------");
 
 
             // Inspect items in each pack again!
-            // ****************************************************************
-            // TODO: Uncomment these method calls when your Backpack class is done!
-            /*
             dashPack.PrintPackContents();
             banditPack.PrintPackContents();
-            */
-            // ****************************************************************
+            
+          
             Console.WriteLine("-----------------------------");
 
 
@@ -89,70 +77,76 @@ namespace Backpack_PE
                     // Prints the backpack contents of both NPCs
                     case "PRINT":
 
-                        // ****************************************************************
-                        // TODO: Print the contents of each NPC's Backpack
-                        
-
-                        // ****************************************************************
+                        dashPack.PrintPackContents();
+                        banditPack.PrintPackContents();
                         break;
 
                     // Menu Option: STEAL
                     // Prompts for a specific NPC and item, then steals that item.
                     case "STEAL":
-
-                        // ****************************************************************
-                        // TODO: Uncomment this code when your Backpack class is done!
-                        /*
+                        
                         chosenNPC = GetNPCChoice(dashPack.Owner, banditPack.Owner);
                         chosenIndex = GetIndexChoice(chosenNPC);
 
-                        // Get the item from specified NPC's pack
-                        if (chosenNPC == dashPack.Owner.ToUpper())
+                        // Checks if the index is valid or not
+                        try
                         {
-                            stolenItem = dashPack.GetItemInSlot(chosenIndex);
-                        }
-                        else if (chosenNPC == banditPack.Owner.ToUpper())
-                        {
-                            stolenItem = banditPack.GetItemInSlot(chosenIndex);
-                        }
+                            // Get the item from specified NPC's pack
+                            if (chosenNPC == dashPack.Owner.ToUpper())
+                            {
+                                stolenItem = dashPack.GetItemInSlot(chosenIndex);
+                            }
+                            else if (chosenNPC == banditPack.Owner.ToUpper())
+                            {
+                                stolenItem = banditPack.GetItemInSlot(chosenIndex);
+                            }
 
-                        // And add it to this list of stolen items/confirm it was stolen
-                        stolenItems.Add(stolenItem);
-                        Console.WriteLine(
-                            "{0} stolen from slot {1} in {2}'s backpack!",
-                            stolenItem, chosenIndex, chosenNPC);
-                        */
-                        // ****************************************************************
+
+                            // And add it to this list of stolen items/confirm it was stolen
+                            stolenItems.Add(stolenItem);
+                            Console.WriteLine(
+                                "{0} stolen from slot {1} in {2}'s backpack!",
+                                stolenItem, chosenIndex, chosenNPC);
+                        }
+                        // Prints the throw message if the index is not valid
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine(ex.Message);
+                        }
                         break;
 
                     // Menu Option: RANDOM
                     // Prompts for a specific NPC and item, then steal that item.
                     case "RANDOM":
-
-                        // ****************************************************************
-                        // TODO: Uncomment this code when your Backpack class is done!
-                        /*
+                        
                         randomNPC = generator.NextDouble();
 
-                        // Get a random item from a random NPC's pack
-                        if (randomNPC < 0.5)
+                        // Checks the item is in a list that isn't empty
+                        try
                         {
-                            stolenItem = dashPack.GetRandomItem();
-                            chosenNPC = dashPack.Owner;
-                        }
-                        else 
-                        {
-                            stolenItem = banditPack.GetRandomItem();
-                            chosenNPC = banditPack.Owner;
-                        }
+                            // Get a random item from a random NPC's pack
+                            if (randomNPC < 0.5)
+                            {
+                                stolenItem = dashPack.GetRandomItem();
+                                chosenNPC = dashPack.Owner;
+                            }
+                            else
+                            {
+                                stolenItem = banditPack.GetRandomItem();
+                                chosenNPC = banditPack.Owner;
+                            }
 
-                        // And add it to this list of stolen items
-                        stolenItems.Add(stolenItem);
-                        Console.WriteLine(
-                            "{0} stolen from {1}'s backpack!",
-                            stolenItem, chosenNPC);
-                        */
-                        // *********************************************************
+                            // And add it to this list of stolen items
+                            stolenItems.Add(stolenItem);
+                            Console.WriteLine(
+                                "{0} stolen from {1}'s backpack!",
+                                stolenItem, chosenNPC);
+                        }
+                        // Prints out this exception if the list is empty
+                        catch (Exception)
+                        {
+                            Console.WriteLine ($"Cannot return item from {chosenNPC}'s empty bag");
+                        }
                         break;
 
                     // Menu Option: ADD
@@ -162,22 +156,33 @@ namespace Backpack_PE
                         // Ask user for an item to insert into the backpack
                         string itemToInsert = GetItemFromUser();
 
-                        // ****************************************************************
-                        // TODO: Insert the item into a randomly-chosen NPC's Backpack.
-
-
-                        // ****************************************************************
+                        // Inserts item into a random backpack
+                        randomNPC = generator.NextDouble();
+                        if (randomNPC < 0.5)
+                        {
+                            dashPack.AddToPack(itemToInsert);
+                            chosenNPC = dashPack.Owner;
+                        }
+                        else
+                        {
+                            banditPack.AddToPack(itemToInsert);
+                            chosenNPC = banditPack.Owner;
+                        }
+                    
                         break;
 
                     // Menu Option: QUIT
                     // Ends the program, printing all the stuff you stole from the the NPCs.
                     case "QUIT":
 
-                        // ****************************************************************
-                        // TODO: Print the contents of your stolen items list to the console
+                        Console.WriteLine("");
+                        
+                        // Prints the contents of the stolen items list to the console
+                        foreach (string item in stolenItems)
+                        {
+                            Console.WriteLine(item);
+                        }
 
-
-                        // ****************************************************************
                         break;
                 }
 
