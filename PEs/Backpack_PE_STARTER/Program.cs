@@ -143,9 +143,9 @@ namespace Backpack_PE
                                 stolenItem, chosenNPC);
                         }
                         // Prints out this exception if the list is empty
-                        catch (Exception)
+                        catch (Exception ex)
                         {
-                            Console.WriteLine ($"Cannot return item from {chosenNPC}'s empty bag");
+                            Console.WriteLine (ex.Message);
                         }
                         break;
 

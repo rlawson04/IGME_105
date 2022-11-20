@@ -1,0 +1,2 @@
+Monster|Guts|75
+Vampire|Dragos|20
