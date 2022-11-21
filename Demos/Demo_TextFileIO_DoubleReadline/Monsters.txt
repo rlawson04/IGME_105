@@ -1,0 +1,9 @@
+Monster|A|75|90|yes
+Monster|B|12|73|no
+Monster|C|46|0|yes
+Monster|D|98|0|no
+Zombie|Guts|26|100|yes
+Zombie|Munch|39|0|yes
+Vampire|Kalon|1154|53
+Vampire|Calantha|49|20
+Vampire|Dragos|344|0
