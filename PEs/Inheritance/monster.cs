@@ -62,9 +62,9 @@ namespace Inheritance
         /// Parameterized constructor that takes name, age, constitution, and undead
         /// </summary>
         /// <param name="name"> takes in a string  </param>
-        /// <param name="age"> </param>
-        /// <param name="constitution"> </param>
-        /// <param name="undead"> </param>
+        /// <param name="age"> takes in an int </param>
+        /// <param name="constitution"> takes in a double </param>
+        /// <param name="undead"> takes in a bool </param>
         public Monster(string name, int age, double constitution, bool undead)
         {
             this.name = name;
