@@ -14,13 +14,36 @@ namespace PE_25_Abstract
 
         protected string name;
         protected int health;
-
+        protected string attackType;
+        protected Random randomGenerator;
 
         //-------------------------------------------------
         // Properties
         //-------------------------------------------------
 
+        /// <summary>
+        /// Read-Only name
+        /// </summary>
+        public string Name
+        {
+            get { return name; }
+        }
 
+        /// <summary>
+        /// Read and Write method that changes health to a
+        /// lesser value that cannot be negative
+        /// </summary>
+        public int Health
+        {
+            get { return health; }
+            set
+            {
+                if (value >= 0 && value < health)
+                {
+                    health = value;
+                }
+            }
+        }
         //-------------------------------------------------
         // Constructors
         //-------------------------------------------------
