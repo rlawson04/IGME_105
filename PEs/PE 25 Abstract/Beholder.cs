@@ -8,7 +8,7 @@ namespace PE_25_Abstract
 {
     /// <summary>
     /// Beholder child class of the Monster base class that inherits all 
-    /// fields, properties, and methods. 
+    /// fields, properties, and methods. Has a vulnerability type to certain attacks.
     /// </summary>
     internal class Beholder : Monster
     {

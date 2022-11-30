@@ -8,7 +8,7 @@ namespace PE_25_Abstract
 {
     /// <summary>
     /// Dragon child class of the Monster base class that inherits all 
-    /// fields, properties, and methods. 
+    /// fields, properties, and methods. Has a resistance type to certain attacks.
     /// </summary>
     internal class Dragon : Monster
     {
