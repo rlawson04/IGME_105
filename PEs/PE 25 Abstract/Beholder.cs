@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 
 namespace PE_25_Abstract
 {
+    /// <summary>
+    /// Beholder child class of the Monster base class that inherits all 
+    /// fields, properties, and methods. 
+    /// </summary>
     internal class Beholder : Monster
     {
         //-------------------------------------------------

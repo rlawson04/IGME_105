@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace PE_25_Abstract
 {
+    /// <summary>
+    /// Base monster class for the Dragon and Beholder child classes
+    /// </summary>
     abstract class Monster
     {
         //-------------------------------------------------
