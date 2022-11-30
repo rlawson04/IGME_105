@@ -10,9 +10,8 @@ namespace Text_File_IO_PE
     {
         static void Main(string[] args)
         {
-            // New lists that hold names (string) and damages (int)
-            List<string> names = new List<string>();
-            List<int> damages = new List<int>();
+            // A list of enemy objects
+            List<Enemy> enemiesList = new List<Enemy>();
 
             // Name of the text file initialized to a string 
             string fileName = "enemies.txt";
@@ -42,19 +41,23 @@ namespace Text_File_IO_PE
                         Console.WriteLine();
                         Console.Write("How many enemies are you adding? ");
                         int userInt = int.Parse(Console.ReadLine());
-                        
+
                         // For loop for each added enemy
                         for (int i = 0; i < userInt; i++)
                         {
                             // Takes user inputed name and adds to the name list
                             Console.Write($"Enter enemy {i + 1} name: ");
-                            names.Add(Console.ReadLine());
+                            string enemyName = (Console.ReadLine());
 
                             // Takes user inputed damage and adds to the damage list
                             Console.Write($"Enter enemy {i + 1} damage: ");
-                            damages.Add(int.Parse(Console.ReadLine()));
+                            int enemyDamage = (int.Parse(Console.ReadLine()));
+
+                            Enemy enemy = new Enemy(enemyName, enemyDamage);
+                            enemiesList.Add(enemy);
                         }
 
+                        
                         Console.WriteLine();
                         break;
 
@@ -94,7 +97,7 @@ namespace Text_File_IO_PE
                         Console.WriteLine();
 
                         // Checks if there are items in names.count
-                        if(names.Count > 0)
+                        if(enemiesList.Count > 0)
                         {
                             names.Clear();
                             damages.Clear();

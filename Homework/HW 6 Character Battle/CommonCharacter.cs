@@ -8,6 +8,9 @@ using static System.Net.Mime.MediaTypeNames;
 
 namespace HW_6_Character_Battle
 {
+    /// <summary>
+    /// The common character which will be the base for the Archer and Mage child classes
+    /// </summary>
     internal class CommonCharacter
     {
         // --------------------------------------------------------------------

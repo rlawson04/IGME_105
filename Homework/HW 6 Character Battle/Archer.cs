@@ -6,6 +6,11 @@ using System.Threading.Tasks;
 
 namespace HW_6_Character_Battle
 {
+    /// <summary>
+    /// The Archer child classs which inherits from the CommonCharacter class 
+    /// in addition to having arrows and dexterity which they use to attack
+    /// and dodge attacks respectively.
+    /// </summary>
     internal class Archer : CommonCharacter
     {
         // --------------------------------------------------------------------
@@ -66,11 +71,11 @@ namespace HW_6_Character_Battle
         /// <summary>
         /// Asks if the character is ready to flee based on their health value
         /// </summary>
-        /// <returns> returns true if their health is below one half 
+        /// <returns> returns true if their health is below 5 points
         /// or they have no arrows, false otherwise </returns>
         public override bool ReadyToFlee()
         {
-            if (health == health / 2 || arrowsLeft == 0)
+            if (health <= 5 || arrowsLeft == 0)
             {
                 return true;
             }

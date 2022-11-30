@@ -6,6 +6,11 @@ using System.Threading.Tasks;
 
 namespace HW_6_Character_Battle
 {
+    /// <summary>
+    /// The Mage child classs which inherits from the 
+    /// CommonCharacter class in addition to having mp 
+    /// and armor to cast spells and block damage respectively.
+    /// </summary>
     internal class Mage : CommonCharacter
     {
         // --------------------------------------------------------------------
