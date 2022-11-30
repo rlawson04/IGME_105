@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace PE_25_Abstract
 {
-    internal class Dragon : Monster
+    internal class Beholder : Monster
     {
         //-------------------------------------------------
         // Fields
         //-------------------------------------------------
 
-        private string resistanceType;
+        private string vulnerabilityType;
 
         //-------------------------------------------------
         // Properties
@@ -30,43 +30,41 @@ namespace PE_25_Abstract
         /// <param name="name"> takes a string </param>
         /// <param name="health"> takes an int </param>
         /// <param name="attackType"> takes a string </param>
-        /// <param name="resistanceType"> takes a string </param>
-        public Dragon (string name, int health, string attackType, string resistanceType) 
-            : base (name, health, attackType)
+        /// <param name="vulnerabilityType"> takes a string </param>
+        public Beholder(string name, int health, string attackType, string vulnerabilityType)
+            : base(name, health, attackType)
         {
-            this.resistanceType = resistanceType;
+            this.vulnerabilityType = vulnerabilityType;
         }
 
-        //-------------------------------------------------
+        //------------------------------------------------
         // Methods
-        //-------------------------------------------------
+        //------------------------------------------------
 
         /// <summary>
-        /// Calculates damage done to monster by calling the TakeDamage method
-        /// after the random number is generated between 10-20
+        /// Calls a random number between 5 and 25,
+        /// and then calls the take damage method on the chosen monster
         /// </summary>
         /// <param name="monster"> takes an instance of the monster or child classes </param>
         public override void Attack(Monster monster)
         {
-            int damage = randomGenerator.Next(10,21);
+            int damage = randomGenerator.Next(5,26);
             Console.Write($"{name} attacks for {damage}. ");
             monster.TakeDamage(damage, attackType);
-
-            
         }
 
         /// <summary>
-        /// Checks the attack type against the Dragon's resistance type
+        /// Checks the attack type against the Beholder's vulnerability type 
         /// </summary>
         /// <param name="damage"> takes an int </param>
         /// <param name="attackType"> takes a string </param>
         public override void TakeDamage(int damage, string attackType)
         {
-            if (attackType == resistanceType)
+            if (attackType == vulnerabilityType)
             {
                 Console.WriteLine($"{name} takes {damage} {attackType} " +
-                    $"damage, halved to {damage/2} due to a {resistanceType} resistance");
-                damage = damage / 2;
+                    $"damage, doubled to {damage * 2} due to a {vulnerabilityType} vulnerability");
+                damage = damage * 2;
                 health -= damage;
             }
             else
@@ -82,7 +80,7 @@ namespace PE_25_Abstract
         /// <returns> The parent class's string plus more specific information </returns>
         public override string ToString()
         {
-            return $"The Dragon " + base.ToString() + $" {name} is resistant to {resistanceType} damage.";
+            return $"The Beholder " + base.ToString() + $" {name} is vulerable to {vulnerabilityType} damage.";
         }
     }
 }

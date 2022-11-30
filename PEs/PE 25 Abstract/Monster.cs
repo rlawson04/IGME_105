@@ -22,7 +22,7 @@ namespace PE_25_Abstract
         //-------------------------------------------------
 
         /// <summary>
-        /// Read-Only name
+        /// Read-Only property for name
         /// </summary>
         public string Name
         {
@@ -30,7 +30,7 @@ namespace PE_25_Abstract
         }
 
         /// <summary>
-        /// Read and Write method that changes health to a
+        /// Read and Write property that changes health to a
         /// lesser value that cannot be negative
         /// </summary>
         public int Health
@@ -76,7 +76,7 @@ namespace PE_25_Abstract
         /// <summary>
         /// Attacks a target
         /// </summary>
-        /// <param name="monster"> takes a monster object </param>
+        /// <param name="monster"> takes an instance of a monster object </param>
         public abstract void Attack(Monster monster);
 
         /// <summary>
@@ -95,21 +95,17 @@ namespace PE_25_Abstract
             switch (attackType)
             {
                 case "fire":
-                return $"{name} has {health} health and breathes fire on its enemies";
-                    break;
-
+                return $"{name} has {health} health and breathes fire on its enemies.";
+                  
                 case "ice":
-                    return $"{name} has {health} health and freezes its enemies";
-                    break;
-
+                    return $"{name} has {health} health and freezes its enemies.";
+                    
                 case "earth":
-                    return $"{name} has {health} health and creates powerful earthquakes";
-                    break;
-
+                    return $"{name} has {health} health and creates powerful earthquakes.";
+                    
                 case "lightning":
-                    return $"{name} has {health} health and summons lightning strikes";
-                    break;
-
+                    return $"{name} has {health} health and summons lightning strikes.";
+                    
                 default:
                     return name;
             }
