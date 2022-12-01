@@ -75,7 +75,7 @@ namespace HW_6_Character_Battle
         /// or they have no arrows, false otherwise </returns>
         public override bool ReadyToFlee()
         {
-            if (health <= 5 || arrowsLeft == 0)
+            if (health <= 5 || arrowsLeft <= 0)
             {
                 return true;
             }
@@ -102,7 +102,7 @@ namespace HW_6_Character_Battle
         /// <param name="amount"> takes an int </param>
         public override void TakeDamage(int amount)
         {
-            if (random.Next(1, health) >= dodgeChance)
+            if (random.Next(1, dexterity) >= dodgeChance)
             {
                 health -= amount / 2;
             }

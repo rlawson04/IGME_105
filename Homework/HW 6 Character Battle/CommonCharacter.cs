@@ -49,7 +49,19 @@ namespace HW_6_Character_Battle
         // Read only property that returns if they are alive as a bool
         public bool IsDead
         {
-            get { return isDead; }
+            get
+            {
+                if (health < 0)
+                {
+
+                    return true;
+
+                }
+                else
+                {
+                    return false;
+                }
+            }
         }
 
         // --------------------------------------------------------------------

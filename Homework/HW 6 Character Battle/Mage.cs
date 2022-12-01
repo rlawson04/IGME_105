@@ -66,7 +66,7 @@ namespace HW_6_Character_Battle
         /// or if they are out of mp, false otherwise </returns>
         public override bool ReadyToFlee()
         {
-            if (health == health / 4 || mp == 0)
+            if (health == health / 4 || mp <= 0)
             {
                 return true;
             }

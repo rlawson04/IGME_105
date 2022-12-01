@@ -31,7 +31,7 @@ namespace HW_6_Character_Battle
             int numberOfContestants = 4;
             int roundNumber = 1;
             // While Loop for the rounds fought
-            while (numberOfContestants >= 1)
+            while (numberOfContestants > 1)
             {
                 // Print round number
                 Console.WriteLine("Round " + roundNumber + " ----------------------------");
@@ -72,7 +72,7 @@ namespace HW_6_Character_Battle
                 }
 
                 // Print out Casualties 
-                Console.WriteLine("\n>> Casualties <<\n");
+                Console.WriteLine("\n>> Casualties <<");
                 for (int j = 0; j < numberOfContestants; j++)
                 {
                     // Check if each character is ready to flee or if they are dead
@@ -91,10 +91,24 @@ namespace HW_6_Character_Battle
                     }
                 }
                 
-
-                Console.WriteLine("<Press ENTER to continue>\n");
+                // Prompt user for input so battle isn't finished instantly
+                Console.WriteLine("\n<Press ENTER to continue>\n");
                 Console.ReadLine();
-            }// End of battle loop
-        }
+
+                roundNumber++;
+            } // End of battle loop
+
+            Console.WriteLine("**The battle has finished**");
+
+            // Print victor if one character won, or print that no one survived
+            if (numberOfContestants == 1)
+            {
+                Console.WriteLine(commonCharacters.ElementAt(0).Name + " has won the battle!");
+            }
+            else if (numberOfContestants == 0)
+            {
+                Console.WriteLine("No one survived the vicious battle");
+            }
+        }// End of main
     }
 }
