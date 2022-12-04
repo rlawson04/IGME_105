@@ -1,4 +1,8 @@
-﻿using System;
+﻿// Reilly Lawson
+// 12/4/2022
+// Using File IO to simulate a battle
+
+using System;
 using System.IO;
 
 /// <summary>
