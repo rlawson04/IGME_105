@@ -90,7 +90,7 @@ namespace HW7_BattleDamage
                 {
                     range = "long";
                 }
-                // Next two have medium range
+                // Next two rounds have medium range
                 else if(round <= 5)
                 {
                     range = "medium";
