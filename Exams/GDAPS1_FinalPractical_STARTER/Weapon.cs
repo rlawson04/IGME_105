@@ -67,7 +67,7 @@ namespace GDAPS1_FinalPractical
         /// <returns> returns the name, weight, and damage of the weapon </returns>
         public override string ToString()
         {
-            return base.ToString() + $", {damage} damage";
+            return base.ToString() + $", {damage} damage.";
         }
     }
 }

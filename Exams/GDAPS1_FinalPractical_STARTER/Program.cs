@@ -82,10 +82,10 @@ namespace GDAPS1_FinalPractical
             /********************************************/
 
             // TODO: UNCOMMENT the following to test Activity 4
-/*            Console.WriteLine("\n\n** Activity 4 **");
+            Console.WriteLine("\n\n** Activity 4 **");
             myItems.LightenLoad();
             myItems.PrintSummary();
-*/
+
         }
 
     }

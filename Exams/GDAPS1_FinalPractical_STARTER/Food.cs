@@ -57,7 +57,7 @@ namespace GDAPS1_FinalPractical
         /// <returns> The foods name, weight, and number of servings </returns>
         public override string ToString()
         {
-            return base.ToString() + $" and has {numberOfServings} servings";
+            return base.ToString() + $" and has {numberOfServings} servings.";
         }
 
         /// <summary>
@@ -68,11 +68,11 @@ namespace GDAPS1_FinalPractical
         {
             if (numberOfServings == 0)
             {
-                Console.WriteLine($"There is no {Name} left to eat");
+                Console.WriteLine($":( There is no {Name} left to eat.");
             }
             else
             {
-                Console.WriteLine($"Mmmm I ate a serving of {Name}");
+                Console.WriteLine($"Mmmm I ate a serving of {Name}.");
                 numberOfServings--;
             }
         }

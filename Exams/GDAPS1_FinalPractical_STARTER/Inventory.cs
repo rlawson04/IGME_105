@@ -150,5 +150,49 @@ namespace GDAPS1_FinalPractical
             }
         }
 
+        /// <summary>
+        /// Removes any weapons over 100 pounds and eats a serving of every food.
+        /// If that was the last serving of the food, remove it.
+        /// </summary>
+        public void LightenLoad()
+        {
+            // Goes through each Item in the list
+            for (int i = 0; i < items.Count; i++)
+            {
+                // Checks if item is a weapon
+                if (items[i] is Weapon)
+                {
+                    // Downcast Item to weapon
+                    Weapon weapon = (Weapon)items[i];
+
+                    // Checks if the weapon is too heavy, if it is, drop it
+                    if(weapon.Weight > 100)
+                    {
+                        Console.WriteLine($"Dropping {weapon} It's too heavy.");
+                        items.Remove(weapon); 
+                    }
+                }
+
+                // Checks if item is food
+                if (items[i] is Food)
+                {
+                    // Downcast Item to food
+                    Food food = (Food)items[i];
+
+                    // Eats a serving of food
+                    food.Eat();
+
+                    // Checks if there is any more left, if not drop it
+                    if (food.Weight == 0)
+                    {
+                        Console.WriteLine($"Dropping {food} It's all gone.");
+                        items.Remove(food);
+                        i--;
+                    }
+                }
+            }
+
+        }
+
     }
 }
