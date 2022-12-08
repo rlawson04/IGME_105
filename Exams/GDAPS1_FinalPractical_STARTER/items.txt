@@ -1,0 +1,8 @@
+﻿Weapon,Pebble,1,0.01
+Food,Tea,4,0.25
+Weapon,Knife,50,1
+Food,Coffee,8,0.25
+Weapon,Boulder,1000,2000
+Food,Chocolate,1,0.01
+Weapon,Horse,25,1100
+Weapon,Long Sword,100,4
