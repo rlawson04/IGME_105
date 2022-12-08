@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 
 namespace GDAPS1_FinalPractical
 {
+    /// <summary>
+    /// Inventory class that contains a list of items as 
+    /// well as several methods to interact with that list
+    /// </summary>
     internal class Inventory
     {
         //----------------------------------
@@ -77,10 +81,16 @@ namespace GDAPS1_FinalPractical
             // Adds all the weapons and their damages to respective variables
             foreach (Item i in items)
             {
+                // Checks if the item is a weapon
                 if (i is Weapon)
                 {
+                    // Downcast item to a weapon to access properties
                     Weapon weapon = (Weapon)i;
+
+                    // Increment number of weapons
                     numberOfWeapons++;
+
+                    // Add to the total damage
                     totalDamage += weapon.Damage;
                 }
             }
@@ -187,6 +197,8 @@ namespace GDAPS1_FinalPractical
                     {
                         Console.WriteLine($"Dropping {food} It's all gone.");
                         items.Remove(food);
+
+                        // Make sure not to skip since elements are being removed
                         i--;
                     }
                 }

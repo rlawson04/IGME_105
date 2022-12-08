@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 
 namespace GDAPS1_FinalPractical
 {
+    /// <summary>
+    /// Specific item type that inherits from the item base class
+    /// while having its own unique fields and method as well as an overriden property
+    /// </summary>
     internal class Food : Item
     {
         //----------------------------------
@@ -66,10 +70,13 @@ namespace GDAPS1_FinalPractical
         /// </summary>
         public void Eat()
         {
+            // When there are no more servings
             if (numberOfServings == 0)
             {
                 Console.WriteLine($":( There is no {Name} left to eat.");
             }
+
+            // When there are servings remaining 
             else
             {
                 Console.WriteLine($"Mmmm I ate a serving of {Name}.");
