@@ -37,20 +37,25 @@ namespace GDAPS1_FinalPractical
              *  scenario.
              */
             // TODO: Enter your response about Item ToString in a comment here
+            // The item.ToString method is a public one which means all other classes
+            // have access to it. Since the list inside inventory is of instances of 
+            // items, you can call the method on the given instance or instances. If 
+            // there was no instance of the object given, it would not work.
+
 
             // TODO: UNCOMMENT the following to test Activity 1
-/*            Console.WriteLine("\n\n** Activity 1 **");
+            Console.WriteLine("\n\n** Activity 1 **");
             Inventory myItems = new Inventory();
             myItems.AddItem(new Weapon("Sharp Stick", 5, 0.05));
             myItems.PrintSummary();
-*/
+
 
             /********************************************/
             /* ACTIVITY 2: Add support for foods        */
             /********************************************/
 
             // TODO: UNCOMMENT the following to test Activity 3
-/*            Console.WriteLine("\n\n** Activity 2 **");
+            Console.WriteLine("\n\n** Activity 2 **");
             Food testFood = new Food("Apple", 2, 0.25);
             testFood.Eat();
             testFood.Eat();
@@ -59,7 +64,7 @@ namespace GDAPS1_FinalPractical
             myItems.AddItem(new Food("Pumpkin Pie", 8, 0.1));
             myItems.AddItem(new Food("Cookies", 25, 0.03));
             myItems.PrintSummary();
-*/
+
 
             /********************************************/
             /* ACTIVITY 3: Load more items from a file  */
