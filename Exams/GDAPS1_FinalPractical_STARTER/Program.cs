@@ -71,12 +71,12 @@ namespace GDAPS1_FinalPractical
             /********************************************/
 
             // TODO: UNCOMMENT the following to test Activity 3
-/*            Console.WriteLine("\n\n** Activity 3 **");
+            Console.WriteLine("\n\n** Activity 3 **");
             myItems.LoadItems("../../../BAD.txt");
             myItems.LoadItems("../../../items.txt");
             myItems.LoadItems("../../../items.txt");
             myItems.PrintSummary();
-*/
+
             /********************************************/
             /* ACTIVITY 4: Lighten the load             */
             /********************************************/
